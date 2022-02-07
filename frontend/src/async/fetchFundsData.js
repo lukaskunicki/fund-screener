@@ -1,4 +1,4 @@
-import { apiURLs } from "../config/apiURLs";
+import { apiURLs } from "../config/api/apiURLs";
 
 const fetchFundsData = async () => {
   try {
