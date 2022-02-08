@@ -3,4 +3,4 @@ const fundsScreenerReducerActions = {
   FILTER: "FILTER",
 };
 
-export { fundsScreenerReducerActions };
+export default fundsScreenerReducerActions;

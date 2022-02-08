@@ -2,9 +2,10 @@ import { useReducer, useCallback, useEffect } from "react";
 import { fundsScreenerReducer } from "../reducers/fundsScreenerReducer";
 import { fetchFundsData } from "../async/fetchFundsData";
 import { filterKeys } from "../config/filters/filterKeys";
+import fundsScreenerReducerActions from "../config/reducers/fundsScreenerReducerActions";
 
 const initialState = {
-  rawFundsData: [],
+  initialFundsData: [],
   filtersData: [],
 };
 
@@ -38,7 +39,7 @@ const useFundsScreener = () => {
     const filterUniqueValues = getUniquePairValues(apiResponse, filterKeys);
 
     dispatch({
-      type: fundsScreenerReducer.INITIALIZE,
+      type: fundsScreenerReducerActions.INITIALIZE,
       payload: {
         initialFundsData: groupedFunds,
         filtersData: filterUniqueValues,
@@ -50,7 +51,7 @@ const useFundsScreener = () => {
     initializeFundsData();
   }, [initializeFundsData]);
 
-  return [state];
+  return [state, dispatch];
 };
 
-export { useFundsScreener };
+export default useFundsScreener;

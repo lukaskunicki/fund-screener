@@ -1,11 +1,12 @@
 const fundsScreenerReducer = (state, action) => {
   switch (action.type) {
-    case "INITIALIZE_FUNDS":
+    case "INITIALIZE":
       return {
         ...state,
-        rawFundsData: [...action.payload.rawFundsData],
+        initialFundsData: action.payload.initialFundsData,
+        filtersData: action.payload.filtersData,
       };
-    case "FILTER_FUNDS":
+    case "FILTER":
       return {
         ...state,
       };
