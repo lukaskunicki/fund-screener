@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Select = ({ label, name, defaultValue, options }) => {
+const Select = ({ label, name, defaultValue, options, changeHandler }) => {
   return (
     <div>
       <label>{label}</label>
-      <select name={name}>
+      <select name={name} onChange={(e) => changeHandler(name, e.target.value)}>
         <option disabled={true}>{defaultValue}</option>
         {/* TODO: use uuid here */}
         {options.map((option, key) => (
@@ -23,6 +23,7 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
+  changeHandler: PropTypes.func,
 };
 
 export default Select;
