@@ -10,6 +10,7 @@ const fundsScreenerReducer = (state, action) => {
     case "FILTER":
       return {
         ...state,
+        filteredFundsData: [...action.payload.filteredFundsData],
       };
     default:
       return { ...state };

@@ -80,7 +80,7 @@ const useFundsScreener = () => {
       dispatch({
         type: fundsScreenerReducerActions.FILTER,
         payload: {
-          filtersData: filtersResult,
+          filteredFundsData: filtersResult,
         },
       });
     },
