@@ -8,6 +8,7 @@ const initialState = {
   initialFundsData: [],
   filteredFundsData: [],
   filtersData: [],
+  appliedFilters: {},
 };
 
 // TODO: detach from this hook
@@ -36,16 +37,23 @@ const objectToKeyValuePairs = (data) => {
   return Object.entries(data).map(([key, value]) => ({ key, value }));
 };
 
-const filterFundsArray = (initialArray, { filterKey, filterValue }) => {
-  if (filterValue === "All") return [...initialArray];
-  return initialArray.filter((item) => item[filterKey] === filterValue);
+const filterFundsArray = (initialArray, filtersState) => {
+  const filtersArray = Object.entries(filtersState).map(([key, value]) => ({
+    key,
+    value,
+  }));
+  return initialArray.filter((item) => {
+    return filtersArray.every(
+      (filter) => filter.value === "All" || item[filter.key] === filter.value
+    );
+  });
 };
 
-const fundsFilteringHelper = (initialData, { filterKey, filterValue }) => {
+const fundsFilteringHelper = (initialData, filtersState) => {
   return initialData.map((fundGroup) => {
     return {
       key: fundGroup.key,
-      value: [...filterFundsArray(fundGroup.value, { filterKey, filterValue })],
+      value: [...filterFundsArray(fundGroup.value, filtersState)],
     };
   });
 };
@@ -70,21 +78,23 @@ const useFundsScreener = () => {
   }, []);
 
   const filterFunds = useCallback(
-    (filterKey, filterValue) => {
-      const filtersSet = { filterKey, filterValue };
+    (key, value) => {
+      const newFiltersState = { ...state.appliedFilters };
+      newFiltersState[key] = value;
       const filtersResult = fundsFilteringHelper(
         state.initialFundsData,
-        filtersSet
+        newFiltersState
       );
 
       dispatch({
         type: fundsScreenerReducerActions.FILTER,
         payload: {
           filteredFundsData: filtersResult,
+          appliedFilters: newFiltersState,
         },
       });
     },
-    [state.initialFundsData]
+    [state.initialFundsData, state.appliedFilters]
   );
 
   useEffect(() => {

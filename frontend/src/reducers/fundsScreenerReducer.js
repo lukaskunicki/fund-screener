@@ -11,6 +11,7 @@ const fundsScreenerReducer = (state, action) => {
       return {
         ...state,
         filteredFundsData: [...action.payload.filteredFundsData],
+        appliedFilters: { ...action.payload.appliedFilters },
       };
     default:
       return { ...state };

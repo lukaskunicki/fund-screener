@@ -6,7 +6,7 @@ const Select = ({ label, name, defaultValue, options, changeHandler }) => {
     <div>
       <label>{label}</label>
       <select name={name} onChange={(e) => changeHandler(name, e.target.value)}>
-        <option disabled={true}>{defaultValue}</option>
+        <option value={defaultValue}>{defaultValue}</option>
         {/* TODO: use uuid here */}
         {options.map((option, key) => (
           <option key={key} value={option}>
