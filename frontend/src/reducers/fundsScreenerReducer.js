@@ -3,15 +3,21 @@ const fundsScreenerReducer = (state, action) => {
     case "INITIALIZE":
       return {
         ...state,
-        initialFundsData: action.payload.initialFundsData,
-        filteredFundsData: action.payload.initialFundsData,
-        filtersData: action.payload.filtersData,
+        initialFundsData: [...action.payload.initialFundsData],
+        filteredFundsData: [...action.payload.initialFundsData],
+        filtersData: [...action.payload.filtersData],
       };
     case "FILTER":
       return {
         ...state,
         filteredFundsData: [...action.payload.filteredFundsData],
         appliedFilters: { ...action.payload.appliedFilters },
+      };
+    case "SEARCH":
+      return {
+        ...state,
+        filteredFundsData: [...action.payload.filteredFundsData],
+        searchState: action.payload.searchState,
       };
     default:
       return { ...state };

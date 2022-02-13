@@ -4,8 +4,8 @@ import useFundsScreener from "../hooks/useFundsScreener";
 const FundsScreenerContext = createContext();
 
 const FundsScreenerProvider = ({ children }) => {
-  const [state, dispatch] = useFundsScreener();
-  const contextValue = [state, dispatch];
+  const [state, filterFunds, searchFunds] = useFundsScreener();
+  const contextValue = [state, filterFunds, searchFunds];
   return (
     <FundsScreenerContext.Provider value={contextValue}>
       {children}

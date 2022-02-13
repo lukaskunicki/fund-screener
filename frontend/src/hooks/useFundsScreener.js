@@ -3,61 +3,18 @@ import { fundsScreenerReducer } from "../reducers/fundsScreenerReducer";
 import { fetchFundsData } from "../async/fetchFundsData";
 import { filterKeys } from "../config/filters/filterKeys";
 import fundsScreenerReducerActions from "../config/reducers/fundsScreenerReducerActions";
+import groupBy from "../utils/universal/groupBy";
+import objectToKeyValuePairs from "../utils/universal/objectToKeyValuePairs";
+import getUniquePairValues from "../utils/universal/getUniquePairValues";
+import fundsFilteringHelper from "../utils/filtering/fundsFilteringHelper";
 
 const initialState = {
   initialFundsData: [],
   filteredFundsData: [],
   filtersData: [],
   appliedFilters: {},
+  searchState: "",
 };
-
-// TODO: detach from this hook
-const groupBy = (initialArray, key) => {
-  return initialArray.reduce((total, item) => {
-    total[item[key]] = total[item[key]] || [];
-    total[item[key]].push(item);
-    return total;
-  }, {});
-};
-
-const getUniqueValuesFromKey = (dataset, key) => {
-  return [...new Set(dataset.map((item) => item[key]))];
-};
-
-const getUniquePairValues = (dataset, filterKeys) => {
-  return filterKeys.map((key) => {
-    return {
-      key: key,
-      data: getUniqueValuesFromKey(dataset, key),
-    };
-  });
-};
-
-const objectToKeyValuePairs = (data) => {
-  return Object.entries(data).map(([key, value]) => ({ key, value }));
-};
-
-const filterFundsArray = (initialArray, filtersState) => {
-  const filtersArray = Object.entries(filtersState).map(([key, value]) => ({
-    key,
-    value,
-  }));
-  return initialArray.filter((item) => {
-    return filtersArray.every(
-      (filter) => filter.value === "All" || item[filter.key] === filter.value
-    );
-  });
-};
-
-const fundsFilteringHelper = (initialData, filtersState) => {
-  return initialData.map((fundGroup) => {
-    return {
-      key: fundGroup.key,
-      value: [...filterFundsArray(fundGroup.value, filtersState)],
-    };
-  });
-};
-// end of pure functions
 
 const useFundsScreener = () => {
   const [state, dispatch] = useReducer(fundsScreenerReducer, initialState);
@@ -79,12 +36,13 @@ const useFundsScreener = () => {
 
   const filterFunds = useCallback(
     (key, value) => {
-      const newFiltersState = { ...state.appliedFilters };
+      const { initialFundsData, appliedFilters, searchState } = state;
+      const newFiltersState = { ...appliedFilters };
       newFiltersState[key] = value;
-      const filtersResult = fundsFilteringHelper(
-        state.initialFundsData,
-        newFiltersState
-      );
+      const filtersResult = fundsFilteringHelper(initialFundsData, [
+        newFiltersState,
+        searchState,
+      ]);
 
       dispatch({
         type: fundsScreenerReducerActions.FILTER,
@@ -94,14 +52,33 @@ const useFundsScreener = () => {
         },
       });
     },
-    [state.initialFundsData, state.appliedFilters]
+    [state]
+  );
+
+  const searchFunds = useCallback(
+    (value) => {
+      const { initialFundsData, appliedFilters } = state;
+
+      const filtersResult = fundsFilteringHelper(initialFundsData, [
+        appliedFilters,
+        value,
+      ]);
+      dispatch({
+        type: fundsScreenerReducerActions.SEARCH,
+        payload: {
+          filteredFundsData: filtersResult,
+          searchState: value,
+        },
+      });
+    },
+    [state]
   );
 
   useEffect(() => {
     initializeFundsData();
   }, [initializeFundsData]);
 
-  return [state, filterFunds];
+  return [state, filterFunds, searchFunds];
 };
 
 export default useFundsScreener;
