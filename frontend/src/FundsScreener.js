@@ -1,6 +1,7 @@
 import FundsFilters from "./components/exclusive/FundsFilters";
 import useFundsScreenerContext from "./hooks/useFundsScreenerContext";
 import GenericTable from "./components/generic/GenericTable";
+import GlobalFonts from "./assets/fonts/fonts";
 
 const FundsScreener = () => {
   const [state] = useFundsScreenerContext();
@@ -8,6 +9,7 @@ const FundsScreener = () => {
 
   return (
     <div>
+      <GlobalFonts />
       <FundsFilters />
       <div>
         <GenericTable

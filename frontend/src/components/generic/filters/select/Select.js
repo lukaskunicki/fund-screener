@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { StyledSelect, StyledSelectWrapper } from "./StyledSelect";
 
 const Select = ({ label, name, defaultValue, options, changeHandler }) => {
   return (
-    <div>
+    <StyledSelectWrapper>
       <label>{label}</label>
-      <select name={name} onChange={(e) => changeHandler(name, e.target.value)}>
+      <StyledSelect
+        name={name}
+        onChange={(e) => changeHandler(name, e.target.value)}
+      >
         <option value={defaultValue}>{defaultValue}</option>
         {/* TODO: use uuid here */}
         {options.map((option, key) => (
@@ -13,8 +17,8 @@ const Select = ({ label, name, defaultValue, options, changeHandler }) => {
             {option}
           </option>
         ))}
-      </select>
-    </div>
+      </StyledSelect>
+    </StyledSelectWrapper>
   );
 };
 

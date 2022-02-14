@@ -1,13 +1,15 @@
 import React from "react";
-import useSearch from "../../hooks/useSearch";
+import StyledSearch from "./StyledSearch";
+import useSearch from "../../../../hooks/useSearch";
 
-const Search = ({ name, searchHandler }) => {
+const Search = ({ name, placeholder, searchHandler }) => {
   const [searchValue, changeHandler] = useSearch("", searchHandler);
   return (
     <div>
-      <input
+      <StyledSearch
         type="text"
         name={name}
+        placeholder={placeholder}
         onChange={changeHandler}
         value={searchValue}
       />
