@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const GenericExpandableTableRows = ({ rowKey, subRows, columnPaths }) => {
   const [rowExpanded, setRowExpanded] = useState(false);
+  if (!subRows?.length) return null;
   return (
     <>
       <tr>
