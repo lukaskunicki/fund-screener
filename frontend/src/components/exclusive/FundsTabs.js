@@ -2,21 +2,16 @@ import React, { useState } from "react";
 import Tab from "../generic/tabs/Tab";
 import useFundsScreenerContext from "../../hooks/useFundsScreenerContext";
 import GenericTable from "../generic/GenericTable";
+import fundsTableConfig from "../../config/table/fundsTableConfig";
+import Container from "../../assets/global-styles/Container";
 
 const FundsTabs = () => {
-  const tabsData = ["overview", "performance"];
+  const tabsData = Object.keys(fundsTableConfig);
   const [selectedTab, setSelectedTab] = useState(tabsData[0]);
   const [state] = useFundsScreenerContext();
-  const tableHeaders = ["Name", "ISIN", "Region", "Type", "Launch Date"];
-  // const tableHeaders = [
-  //   { label: "Name", key: "fundName" },
-  //   { label: "ISIN", key: "isin" },
-  //   { label: "Region", key: "region" },
-  //   { label: "Type", key: "type" },
-  //   { label: "Launch Date", key: "launchDate" },
-  // ];
+
   return (
-    <>
+    <Container>
       <div>
         {tabsData.map((tab) => (
           <Tab
@@ -30,10 +25,10 @@ const FundsTabs = () => {
       <div>
         <GenericTable
           tableRows={state.filteredFundsData}
-          tableHeaders={tableHeaders}
+          columnsConfig={fundsTableConfig[selectedTab]}
         />
       </div>
-    </>
+    </Container>
   );
 };
 
