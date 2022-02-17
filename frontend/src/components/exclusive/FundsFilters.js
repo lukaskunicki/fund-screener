@@ -6,22 +6,22 @@ import Container from "../../assets/global-styles/Container";
 import Row from "../../assets/global-styles/Row";
 
 const FundsFilters = () => {
-  const [state, filterFunds, searchFunds] = useFundsScreenerContext();
+  const [state, filterFunds, searchFunds, clearFilters] =
+    useFundsScreenerContext();
   return (
     <Container>
       <Row>
-        <div>
-          {!!state.filtersData.length && (
-            <Search
-              name={"search"}
-              placeholder="Start typing to search..."
-              searchHandler={searchFunds}
-            />
-          )}
-        </div>
+        {!!state.filtersData.length && (
+          <Search
+            name={"search"}
+            placeholder="Start typing to search..."
+            searchHandler={searchFunds}
+          />
+        )}
         {state.filtersData.map((filter) => (
           <Select
             key={filter.key}
+            value={state.appliedFilters[filter.key]}
             defaultValue="All"
             label={filter.key}
             name={filter.key}
@@ -29,6 +29,9 @@ const FundsFilters = () => {
             changeHandler={filterFunds}
           />
         ))}
+      </Row>
+      <Row>
+        <button onClick={clearFilters}>clear all filters</button>
       </Row>
     </Container>
   );

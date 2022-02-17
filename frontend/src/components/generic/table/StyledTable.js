@@ -16,6 +16,9 @@ const StyledTableHeaderRow = styled.tr`
 const StyledTableExpandableRow = styled.tr`
   border-bottom: 2px solid #e8e8e8;
   & > td {
+    &:first-child {
+      width: 30%;
+    }
     & > button {
       padding: 30px 40px;
       width: 100%;
@@ -44,10 +47,10 @@ const StyledTableExpandableSubRow = styled.tr`
   background: #f8f8f8;
   & > td {
     text-align: center;
-    padding: 30px 0 30px 25px;
     &:first-child {
       width: 30%;
       text-align: left;
+      padding: 30px 0 30px 25px;
     }
   }
 `;

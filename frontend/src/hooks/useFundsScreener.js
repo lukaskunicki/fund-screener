@@ -1,7 +1,10 @@
 import { useReducer, useCallback, useEffect } from "react";
 import { fundsScreenerReducer } from "../reducers/fundsScreenerReducer";
 import { fetchFundsData } from "../async/fetchFundsData";
-import { filterKeys } from "../config/filters/filterKeys";
+import {
+  filterKeys,
+  getInitialFilterValue,
+} from "../config/filters/filterKeys";
 import fundsScreenerReducerActions from "../config/reducers/fundsScreenerReducerActions";
 import groupBy from "../utils/universal/groupBy";
 import objectToKeyValuePairs from "../utils/universal/objectToKeyValuePairs";
@@ -12,7 +15,7 @@ const initialState = {
   initialFundsData: [],
   filteredFundsData: [],
   filtersData: [],
-  appliedFilters: {},
+  appliedFilters: getInitialFilterValue(),
   searchState: "",
 };
 
@@ -74,11 +77,22 @@ const useFundsScreener = () => {
     [state]
   );
 
+  const clearFilters = useCallback(
+    () =>
+      dispatch({
+        type: fundsScreenerReducerActions.CLEAR_FILTERS,
+        payload: {
+          appliedFilters: getInitialFilterValue(),
+        },
+      }),
+    []
+  );
+
   useEffect(() => {
     initializeFundsData();
   }, [initializeFundsData]);
 
-  return [state, filterFunds, searchFunds];
+  return [state, filterFunds, searchFunds, clearFilters];
 };
 
 export default useFundsScreener;

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+const SearchWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+`;
 const StyledSearch = styled.input`
   font-family: Libre Franklin;
   padding: 18.5px 68px 18.5px 14px;
@@ -9,4 +14,4 @@ const StyledSearch = styled.input`
   border-radius: 8px;
 `;
 
-export default StyledSearch;
+export { SearchWrapper, StyledSearch };

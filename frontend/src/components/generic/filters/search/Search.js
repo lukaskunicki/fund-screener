@@ -1,11 +1,11 @@
 import React from "react";
-import StyledSearch from "./StyledSearch";
+import { StyledSearch, SearchWrapper } from "./StyledSearch";
 import useSearch from "../../../../hooks/useSearch";
 
 const Search = ({ name, placeholder, searchHandler }) => {
   const [searchValue, changeHandler] = useSearch("", searchHandler);
   return (
-    <div>
+    <SearchWrapper>
       <StyledSearch
         type="text"
         name={name}
@@ -13,7 +13,7 @@ const Search = ({ name, placeholder, searchHandler }) => {
         onChange={changeHandler}
         value={searchValue}
       />
-    </div>
+    </SearchWrapper>
   );
 };
 

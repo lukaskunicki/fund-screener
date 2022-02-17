@@ -13,6 +13,12 @@ const fundsScreenerReducer = (state, action) => {
         filteredFundsData: [...action.payload.filteredFundsData],
         appliedFilters: { ...action.payload.appliedFilters },
       };
+    case "CLEAR_FILTERS":
+      return {
+        ...state,
+        filteredFundsData: [...state.initialFundsData],
+        appliedFilters: { ...action.payload.appliedFilters },
+      };
     case "SEARCH":
       return {
         ...state,

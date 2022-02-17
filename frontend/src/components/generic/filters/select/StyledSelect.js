@@ -7,8 +7,8 @@ const StyledSelectWrapper = styled.div`
 
   & > label {
     width: 100%;
-    display: inline-block;
     position: absolute;
+    display: inline-block;
     text-transform: uppercase;
     bottom: 70px;
   }
