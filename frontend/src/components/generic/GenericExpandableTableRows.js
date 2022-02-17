@@ -1,28 +1,29 @@
 import React, { useState } from "react";
+import {
+  StyledTableExpandableRow,
+  StyledTableExpandableSubRow,
+} from "./table/StyledTable";
 
 const GenericExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
   const [rowExpanded, setRowExpanded] = useState(false);
   if (!subRows?.length) return null;
   return (
     <tbody>
-      <tr>
-        <td
-          colSpan={columnsConfig.length}
-          onClick={() => setRowExpanded(!rowExpanded)}
-        >
-          {rowKey}
+      <StyledTableExpandableRow>
+        <td colSpan={columnsConfig.length}>
+          <button onClick={() => setRowExpanded(!rowExpanded)}>{rowKey}</button>
         </td>
-      </tr>
+      </StyledTableExpandableRow>
       {!!rowExpanded &&
         subRows.map((subRow, index) => {
           return (
-            <tr key={index}>
+            <StyledTableExpandableSubRow key={index}>
               {columnsConfig.map((col, index) => (
                 <td tabIndex={0} key={index}>
                   {col.get(subRow)}
                 </td>
               ))}
-            </tr>
+            </StyledTableExpandableSubRow>
           );
         })}
     </tbody>

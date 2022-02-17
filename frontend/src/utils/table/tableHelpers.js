@@ -9,6 +9,7 @@ export const getPeriodValue = (fund, period) => {
 export const getFormattedDate = (rawDate) => {
   const dateObj = new Date(rawDate);
   if (!dateObj) return;
+
   return new Intl.DateTimeFormat("en-GB", {
     month: "numeric",
     day: "numeric",

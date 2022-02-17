@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tab from "../generic/tabs/Tab";
 import useFundsScreenerContext from "../../hooks/useFundsScreenerContext";
-import GenericTable from "../generic/GenericTable";
+import GenericTable from "../generic/table/Table";
 import fundsTableConfig from "../../config/table/fundsTableConfig";
 import Container from "../../assets/global-styles/Container";
 
