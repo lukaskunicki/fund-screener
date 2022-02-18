@@ -11,6 +11,9 @@ const StyledTableHeaderRow = styled.tr`
   border-bottom: 2px solid #e8e8e8;
   & > th {
     padding: 30px 0;
+    
+    &:first-child {
+      width: 30%;
   }
 `;
 const StyledTableExpandableRow = styled.tr`

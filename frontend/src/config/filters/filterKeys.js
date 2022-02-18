@@ -1,10 +1,10 @@
 const filterKeys = ["currency", "region", "type"];
-const initialValue = "All";
+const initialFilterValue = "All";
 
 const getInitialFilterValue = () => {
   let output = {};
-  filterKeys.forEach((key) => (output[key] = initialValue));
+  filterKeys.forEach((key) => (output[key] = initialFilterValue));
   return output;
 };
 
-export { filterKeys, getInitialFilterValue };
+export { filterKeys, initialFilterValue, getInitialFilterValue };
