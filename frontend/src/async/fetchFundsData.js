@@ -5,8 +5,7 @@ const fetchFundsData = async () => {
     const response = await fetch(apiURLs.fundsList);
     return response.json();
   } catch (e) {
-    console.log("Error fetching the data", e);
-    return false;
+    throw new Error("Error fetching the data");
   }
 };
 

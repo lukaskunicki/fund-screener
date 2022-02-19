@@ -7,8 +7,8 @@ export const getPeriodValue = (fund, period) => {
 };
 
 export const getFormattedDate = (rawDate) => {
+  if (!rawDate) return "-";
   const dateObj = new Date(rawDate);
-  if (!dateObj) return;
 
   return new Intl.DateTimeFormat("en-GB", {
     month: "numeric",

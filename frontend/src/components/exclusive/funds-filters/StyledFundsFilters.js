@@ -5,7 +5,7 @@ const StyledClearFiltersButtonWrapper = styled.div`
   padding: 20px 0;
 `;
 
-const StyledClearFiltersButton = styled.div`
+const StyledClearFiltersButton = styled.button`
   font-family: Roboto;
   font-weight: 500;
   padding: 4px 10px;

@@ -17,6 +17,7 @@ const initialState = {
   filtersData: [],
   appliedFilters: getInitialFilterValue(),
   searchState: "",
+  isLoading: true,
 };
 
 const useFundsScreener = () => {

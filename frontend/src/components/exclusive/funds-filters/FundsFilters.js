@@ -6,10 +6,10 @@ import Container from "../../../assets/global-styles/Container";
 import Row from "../../../assets/global-styles/Row";
 import {
   StyledClearFiltersButton,
-  StyledClearFiltersButtons,
   StyledClearFiltersButtonWrapper,
 } from "./StyledFundsFilters";
 import { initialFilterValue } from "../../../config/filters/filterKeys";
+import Column from "../../../assets/global-styles/Column";
 
 const FundsFilters = () => {
   const [state, filterFunds, searchFunds, clearFilters] =
@@ -17,32 +17,35 @@ const FundsFilters = () => {
   const filtersActive = Object.values(state.appliedFilters).some(
     (value) => value !== initialFilterValue
   );
+
   return (
     <Container>
       <Row>
-        {!!state.filtersData.length && (
+        <Column colWidth="25%">
           <Search
             name={"search"}
             placeholder="Start typing to search..."
             searchHandler={searchFunds}
           />
-        )}
+        </Column>
         {state.filtersData.map((filter) => (
-          <Select
-            key={filter.key}
-            value={state.appliedFilters[filter.key]}
-            defaultValue="All"
-            label={filter.key}
-            name={filter.key}
-            options={filter.data}
-            changeHandler={filterFunds}
-          />
+          <Column colWidth="25%">
+            <Select
+              key={filter.key}
+              value={state.appliedFilters[filter.key]}
+              defaultValue={initialFilterValue}
+              label={filter.key}
+              name={filter.key}
+              options={filter.data}
+              changeHandler={filterFunds}
+            />
+          </Column>
         ))}
       </Row>
       <Row>
         {!!filtersActive && (
-          <StyledClearFiltersButtonWrapper onClick={clearFilters}>
-            <StyledClearFiltersButton>
+          <StyledClearFiltersButtonWrapper>
+            <StyledClearFiltersButton tabindex="0" onClick={clearFilters}>
               clear all filters
             </StyledClearFiltersButton>
           </StyledClearFiltersButtonWrapper>

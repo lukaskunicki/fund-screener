@@ -1,13 +1,20 @@
 import FundsFilters from "./components/exclusive/funds-filters/FundsFilters";
-import GlobalFonts from "./assets/fonts/fonts";
 import FundsTabs from "./components/exclusive/FundsTabs";
-import Banner from "./components/exclusive/banner/Banner";
+import useFundsScreenerContext from "./hooks/useFundsScreenerContext";
+import LoadingMask from "./assets/global-styles/LoadingMask";
+import Loader from "./assets/icons/Loader.svg";
 
 const FundsScreener = () => {
+  const [state] = useFundsScreenerContext();
+  if (state.isLoading) {
+    return (
+      <LoadingMask>
+        <img src={Loader} alt="Loader" />
+      </LoadingMask>
+    );
+  }
   return (
     <>
-      <GlobalFonts />
-      <Banner />
       <FundsFilters />
       <FundsTabs />
     </>

@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import FundsScreener from "./FundsScreener";
-import { FundsScreenerProvider } from "./context/FundsScreenerContext";
+import Root from "./Root";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FundsScreenerProvider>
-      <FundsScreener />
-    </FundsScreenerProvider>
+    <Root />
   </React.StrictMode>,
   document.getElementById("root")
 );

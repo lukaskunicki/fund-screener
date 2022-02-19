@@ -6,6 +6,7 @@ const fundsScreenerReducer = (state, action) => {
         initialFundsData: [...action.payload.initialFundsData],
         filteredFundsData: [...action.payload.initialFundsData],
         filtersData: [...action.payload.filtersData],
+        isLoading: false,
       };
     case "FILTER":
       return {

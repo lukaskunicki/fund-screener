@@ -4,6 +4,7 @@ import useFundsScreenerContext from "../../hooks/useFundsScreenerContext";
 import GenericTable from "../generic/table/Table";
 import fundsTableConfig from "../../config/table/fundsTableConfig";
 import Container from "../../assets/global-styles/Container";
+import Row from "../../assets/global-styles/Row";
 
 const FundsTabs = () => {
   const tabsData = Object.keys(fundsTableConfig);
@@ -12,7 +13,7 @@ const FundsTabs = () => {
 
   return (
     <Container>
-      <div>
+      <Row block>
         {tabsData.map((tab) => (
           <Tab
             key={tab}
@@ -21,13 +22,13 @@ const FundsTabs = () => {
             clickHandler={(e) => setSelectedTab(e)}
           />
         ))}
-      </div>
-      <div>
+      </Row>
+      <Row>
         <GenericTable
           tableRows={state.filteredFundsData}
           columnsConfig={fundsTableConfig[selectedTab]}
         />
-      </div>
+      </Row>
     </Container>
   );
 };

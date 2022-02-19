@@ -7,7 +7,7 @@ const Search = ({ name, placeholder, searchHandler }) => {
   return (
     <SearchWrapper>
       <StyledSearch
-        type="text"
+        type="search"
         name={name}
         placeholder={placeholder}
         onChange={changeHandler}

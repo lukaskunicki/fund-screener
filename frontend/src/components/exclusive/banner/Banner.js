@@ -4,6 +4,7 @@ import Logo from "../../../assets/icons/Logo.svg";
 import Row from "../../../assets/global-styles/Row";
 import Container from "../../../assets/global-styles/Container";
 import { StyledHeading, StyledParagraph } from "./StyledBanner";
+
 const Banner = () => {
   return (
     <FullWidthBackground>

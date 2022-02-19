@@ -9,7 +9,7 @@ const GenericExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
   if (!subRows?.length) return null;
   return (
     <tbody>
-      <StyledTableExpandableRow>
+      <StyledTableExpandableRow expanded={rowExpanded}>
         <td colSpan={columnsConfig.length}>
           <button onClick={() => setRowExpanded(!rowExpanded)}>{rowKey}</button>
         </td>
