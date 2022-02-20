@@ -5,8 +5,7 @@ const StyledTab = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.6;
-  padding: 10px 25px;
+  padding: 10px 30px;
   text-align: center;
   color: #2c4959;
   text-transform: uppercase;
@@ -16,9 +15,13 @@ const StyledTab = styled.button`
   ${(props) =>
     !!props.active &&
     css`
+      font-weight: 600;
       border-bottom: 3px solid #fab083;
       color: #222222;
     `};
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export default StyledTab;

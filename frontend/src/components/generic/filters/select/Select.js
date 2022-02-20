@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyledSelect, StyledSelectWrapper } from "./StyledSelect";
 
-const Select = ({
-  label,
-  name,
-  value,
-  defaultValue,
-  options,
-  changeHandler,
-}) => {
+const Select = ({ label, name, value, options, changeHandler }) => {
   return (
     <StyledSelectWrapper>
       <label>{label}</label>
@@ -18,7 +11,6 @@ const Select = ({
         onChange={(e) => changeHandler(name, e.target.value)}
         value={value}
       >
-        <option value={defaultValue}>{defaultValue}</option>
         {/* TODO: use uuid here */}
         {options.map((option, key) => (
           <option key={key} value={option}>
@@ -33,7 +25,6 @@ const Select = ({
 Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  defaultValue: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   changeHandler: PropTypes.func,
 };

@@ -29,11 +29,9 @@ const FundsFilters = () => {
           />
         </Column>
         {state.filtersData.map((filter) => (
-          <Column colWidth="25%">
+          <Column colWidth="20%" key={filter.key}>
             <Select
-              key={filter.key}
               value={state.appliedFilters[filter.key]}
-              defaultValue={initialFilterValue}
               label={filter.key}
               name={filter.key}
               options={filter.data}

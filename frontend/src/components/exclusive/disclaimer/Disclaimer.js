@@ -5,7 +5,7 @@ import { StyledDisclaimer } from "./StyledDisclaimer";
 
 const Disclaimer = () => {
   return (
-    <Container>
+    <Container noSpacing>
       <Row>
         <StyledDisclaimer>
           <p>

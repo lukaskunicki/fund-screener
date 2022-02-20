@@ -7,7 +7,7 @@ const SearchWrapper = styled.div`
 `;
 const StyledSearch = styled.input`
   font-family: Libre Franklin;
-  padding: 18.5px 68px 18.5px 14px;
+  padding: 18.5px 42px 18.5px 14px;
   font-size: 16px;
   line-height: 19px;
   color: rgba(0, 0, 0, 0.6);

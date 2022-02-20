@@ -3,7 +3,7 @@ import FullWidthBackground from "../../../assets/global-styles/FullWidthBackgrou
 import Logo from "../../../assets/icons/Logo.svg";
 import Row from "../../../assets/global-styles/Row";
 import Container from "../../../assets/global-styles/Container";
-import { StyledHeading, StyledParagraph } from "./StyledBanner";
+import { BannerWrapper, StyledHeading, StyledParagraph } from "./StyledBanner";
 
 const Banner = () => {
   return (
@@ -13,14 +13,14 @@ const Banner = () => {
           <img src={Logo} alt="Website Logo" />
         </Row>
         <Row>
-          <div>
+          <BannerWrapper>
             <StyledHeading>Our funds</StyledHeading>
             <StyledParagraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               elementum ultricies nisi, fermentum bibendum lacus fermentum
               venenatis.
             </StyledParagraph>
-          </div>
+          </BannerWrapper>
         </Row>
       </Container>
     </FullWidthBackground>

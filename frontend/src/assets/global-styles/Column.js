@@ -7,9 +7,8 @@ const Column = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    width: 50%;
-  }
-  @media (max-width: 420px) {
+    justify-content: start;
+    padding: 10px 0;
     width: 100%;
   }
 `;
