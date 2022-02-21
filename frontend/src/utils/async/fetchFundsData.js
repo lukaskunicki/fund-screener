@@ -1,4 +1,4 @@
-import { apiURLs } from "../config/api/apiURLs";
+import apiURLs from "../../config/api/apiURLs";
 
 const fetchFundsData = async () => {
   try {
@@ -9,4 +9,4 @@ const fetchFundsData = async () => {
   }
 };
 
-export { fetchFundsData };
+export default fetchFundsData;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyledSearch, SearchWrapper } from "./StyledSearch";
 import useSearch from "../../../../hooks/useSearch";
 
@@ -17,4 +18,10 @@ const Search = ({ name, placeholder, searchHandler }) => {
   );
 };
 
-export default Search;
+Search.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  searchHandler: PropTypes.func.isRequired,
+};
+
+export default React.memo(Search);

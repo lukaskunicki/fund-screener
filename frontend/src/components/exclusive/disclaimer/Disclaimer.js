@@ -56,4 +56,4 @@ const Disclaimer = () => {
   );
 };
 
-export default Disclaimer;
+export default React.memo(Disclaimer);

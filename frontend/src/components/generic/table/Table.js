@@ -1,13 +1,16 @@
 import React from "react";
-import GenericExpandableTableRows from "../GenericExpandableTableRows";
+import PropTypes from "prop-types";
+import GenericExpandableTableRows from "./expandable-table-row/ExpandableTableRows";
 import {
+  StyledAlternativeCell,
   StyledTable,
   StyledTableHeader,
   StyledTableHeaderRow,
   TableWrapper,
 } from "./StyledTable";
 
-const Table = ({ tableRows, columnsConfig }) => {
+const Table = ({ tableRows, columnsConfig, alternativeMessage }) => {
+  const hasSubRows = tableRows.some((row) => row.value?.length);
   return (
     <TableWrapper>
       <StyledTable>
@@ -20,19 +23,35 @@ const Table = ({ tableRows, columnsConfig }) => {
             ))}
           </StyledTableHeaderRow>
         </StyledTableHeader>
-        {tableRows.map((item) => {
-          return (
-            <GenericExpandableTableRows
-              key={item.key}
-              rowKey={item.key}
-              subRows={item.value}
-              columnsConfig={columnsConfig}
-            />
-          );
-        })}
+        {!!hasSubRows &&
+          tableRows.map((item) => {
+            return (
+              <GenericExpandableTableRows
+                key={item.key}
+                rowKey={item.key}
+                subRows={item.value}
+                columnsConfig={columnsConfig}
+              />
+            );
+          })}
+        {!hasSubRows && (
+          <tbody>
+            <tr>
+              <StyledAlternativeCell colSpan="100%">
+                {alternativeMessage}
+              </StyledAlternativeCell>
+            </tr>
+          </tbody>
+        )}
       </StyledTable>
     </TableWrapper>
   );
+};
+
+Table.propTypes = {
+  tableRows: PropTypes.arrayOf(Object).isRequired,
+  columnsConfig: PropTypes.arrayOf(Object).isRequired,
+  alternativeMessage: PropTypes.string.isRequired,
 };
 
 export default React.memo(Table);

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import {
   StyledTableExpandableRow,
   StyledTableExpandableSubRow,
-} from "./table/StyledTable";
+} from "./StyledExpandableTableRows";
 
-const GenericExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
+const ExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
   const [rowExpanded, setRowExpanded] = useState(false);
   if (!subRows?.length) return null;
   return (
@@ -30,4 +30,4 @@ const GenericExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
   );
 };
 
-export default React.memo(GenericExpandableTableRows);
+export default React.memo(ExpandableTableRows);

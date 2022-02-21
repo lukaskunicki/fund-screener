@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import StyledTab from "./StyledTab";
 
-const Tab = ({ title, children, isActive, clickHandler }) => {
+const Tab = ({ title, isActive, clickHandler }) => {
   return (
     <StyledTab active={isActive} onClick={() => clickHandler(title)}>
       {title}
@@ -9,4 +10,10 @@ const Tab = ({ title, children, isActive, clickHandler }) => {
   );
 };
 
-export default Tab;
+Tab.propTypes = {
+  title: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+};
+
+export default React.memo(Tab);

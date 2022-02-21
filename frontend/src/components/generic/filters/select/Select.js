@@ -26,7 +26,7 @@ Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
-  changeHandler: PropTypes.func,
+  changeHandler: PropTypes.func.isRequired,
 };
 
-export default Select;
+export default React.memo(Select);

@@ -7,8 +7,6 @@ const port = 3000;
 
 app.use(cors());
 app.get('/', async (req, res) => {
-  await new Promise((resolve) => setTimeout(resolve, 15000));
-
   const isGrumpy = !!process.env.GRUMPY;
   const randominessFactor = Math.floor(Math.random() * 10) + 1;
 

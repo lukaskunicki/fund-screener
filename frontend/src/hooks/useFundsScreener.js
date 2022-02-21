@@ -1,6 +1,6 @@
 import { useReducer, useCallback, useEffect } from "react";
 import { fundsScreenerReducer } from "../reducers/fundsScreenerReducer";
-import { fetchFundsData } from "../async/fetchFundsData";
+import fetchFundsData from "../utils/async/fetchFundsData";
 import {
   filterKeys,
   getInitialFilterValue,

@@ -9,7 +9,6 @@ import {
   StyledClearFiltersButtonWrapper,
 } from "./StyledFundsFilters";
 import { initialFilterValue } from "../../../config/filters/filterKeys";
-import Column from "../../../assets/global-styles/Column";
 
 const FundsFilters = () => {
   const [state, filterFunds, searchFunds, clearFilters] =
@@ -21,23 +20,20 @@ const FundsFilters = () => {
   return (
     <Container>
       <Row>
-        <Column colWidth="25%">
-          <Search
-            name={"search"}
-            placeholder="Start typing to search..."
-            searchHandler={searchFunds}
-          />
-        </Column>
+        <Search
+          name={"search"}
+          placeholder="Start typing to search..."
+          searchHandler={searchFunds}
+        />
         {state.filtersData.map((filter) => (
-          <Column colWidth="20%" key={filter.key}>
-            <Select
-              value={state.appliedFilters[filter.key]}
-              label={filter.key}
-              name={filter.key}
-              options={filter.data}
-              changeHandler={filterFunds}
-            />
-          </Column>
+          <Select
+            key={filter.key}
+            value={state.appliedFilters[filter.key]}
+            label={filter.key}
+            name={filter.key}
+            options={filter.data}
+            changeHandler={filterFunds}
+          />
         ))}
       </Row>
       <Row>
@@ -53,4 +49,4 @@ const FundsFilters = () => {
   );
 };
 
-export default FundsFilters;
+export default React.memo(FundsFilters);
