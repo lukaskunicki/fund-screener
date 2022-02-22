@@ -1,8 +1,17 @@
 import styled from "styled-components";
 
+const StyledFiltersBackground = styled.div`
+  background: #fafafa;
+  padding: 0 0 55px;
+`;
+
 const StyledClearFiltersButtonWrapper = styled.div`
-  margin-left: auto;
-  padding: 20px 0;
+  top: 20px;
+  right: 0;
+  position: absolute;
+  @media (max-width: 1200px) {
+    right: 5px;
+  }
 `;
 
 const StyledClearFiltersButton = styled.button`
@@ -25,4 +34,8 @@ const StyledClearFiltersButton = styled.button`
   }
 `;
 
-export { StyledClearFiltersButtonWrapper, StyledClearFiltersButton };
+export {
+  StyledFiltersBackground,
+  StyledClearFiltersButtonWrapper,
+  StyledClearFiltersButton,
+};

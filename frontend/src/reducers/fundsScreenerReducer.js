@@ -6,7 +6,10 @@ const fundsScreenerReducer = (state, action) => {
         initialFundsData: [...action.payload.initialFundsData],
         filteredFundsData: [...action.payload.initialFundsData],
         filtersData: [...action.payload.filtersData],
-        isLoading: false,
+        requestStatus: {
+          isLoading: false,
+          isError: false,
+        },
       };
     case "FILTER":
       return {
@@ -26,9 +29,17 @@ const fundsScreenerReducer = (state, action) => {
         filteredFundsData: [...action.payload.filteredFundsData],
         searchState: action.payload.searchState,
       };
+    case "SET_ERROR":
+      return {
+        ...state,
+        requestStatus: {
+          isLoading: false,
+          isError: true,
+        },
+      };
     default:
       return { ...state };
   }
 };
 
-export { fundsScreenerReducer };
+export default fundsScreenerReducer;

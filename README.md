@@ -23,34 +23,34 @@ Aplikacja składa się z poniższych elementów:
 ### Scenariusze testowe
 
 **Komunikacja**
-- [ ] Przyjmując, że użytkownik załadował aplikację ale surowe dane nie zostały jeszcze załadowane z zewnętrznego API, wyświetlona jest maska przysłaniająca interfejs w 90%, oraz wyświetlany jest animowany loader SVG,
-- [ ] Przyjmując, że użytkownik załadował aplikację, surowe dane zostają załadowane z zewnętrznego API,
-- [ ] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, filtry zostają uzupełnione unikalnymi wartościami dla danego mapowania oraz wartością "All" jako standardowy stan,
-- [ ] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, żadna komunikacja z API nie powinna być już prowadzona w żadnej faz z cyklu życia aplikacji,
+- [X] Przyjmując, że użytkownik załadował aplikację ale surowe dane nie zostały jeszcze załadowane z zewnętrznego API, wyświetlona jest maska przysłaniająca interfejs w 90%, oraz wyświetlany jest animowany loader SVG,
+- [X] Przyjmując, że użytkownik załadował aplikację, surowe dane zostają załadowane z zewnętrznego API,
+- [X] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, filtry zostają uzupełnione unikalnymi wartościami dla danego mapowania oraz wartością "All" jako standardowy stan,
+- [X] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, żadna komunikacja z API nie powinna być już prowadzona w żadnej faz z cyklu życia aplikacji,
 
 **Wyszukiwanie**
-- [ ] Przyjmując, że użytkownik wpisał frazę w wyszukiwarkę oraz minęło 250ms od czasu wpisania ostatniego znaku, dane wyświetlone w tabeli są limitowane jedynie do pozycji w których tytuły zawierają ciąg znaków (wielkość znaków powinna być ignorowana),
-- [ ] Przyjmując, że użytkownik wpisał choć jeden znak w wyszukiwarkę, w ramach komponentu pojawia się przycisk do usunięcia zawartości pola tekstowego,
+- [X] Przyjmując, że użytkownik wpisał frazę w wyszukiwarkę oraz minęło 250ms od czasu wpisania ostatniego znaku, dane wyświetlone w tabeli są limitowane jedynie do pozycji w których tytuły zawierają ciąg znaków (wielkość znaków powinna być ignorowana),
+- [X] Przyjmując, że użytkownik wpisał choć jeden znak w wyszukiwarkę, w ramach komponentu pojawia się przycisk do usunięcia zawartości pola tekstowego,
 
 **Filtrowanie**
-- [ ] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, dane wyświetlone w tabeli zostaną odpowiednio dostosowane do wyborów,
-- [ ] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, dane pozostałych filtrów nie zmieniają się
-- [ ] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, przed komponentami pojawia się przycisk "Clear All" przywracający ustawienia wejściowe,
-- [ ] Przyjmując, że użytkownik zmienił więcej niż jeden filtr, relacja między filtrami zostaje ustawiona na `AND`
+- [X] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, dane wyświetlone w tabeli zostaną odpowiednio dostosowane do wyborów,
+- [X] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, dane pozostałych filtrów nie zmieniają się
+- [X] Przyjmując, że użytkownik zmienił jeden z filtrów z domyślnego stanu wejściowego, przed komponentami pojawia się przycisk "Clear All" przywracający ustawienia wejściowe,
+- [X] Przyjmując, że użytkownik zmienił więcej niż jeden filtr, relacja między filtrami zostaje ustawiona na `AND`
 
 **Tabela**
-- [ ] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, użyty powinien zostać komponent tabów, wyświetlający tabele z funduszami w każdym z nich,
-- [ ] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, fundusze inwestycyjne pogrupowane zostają w zbiory o unikalnej nazwie zmapowanej do `FundName`,
-- [ ] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, oraz że fundusze inwestycyjne pogrupowane, grupy zostają wyświetlone w tabeli 
-- [ ] Przyjmując, że grupy funduszy zostają wyświetlone w tabeli, naciśnięcie na grupę powoduje wyświetlenie wszystkich funduszy przylegających do danej grupy, jednocześnie, otwarcie grupy nie powoduje automatycznego zamknięcia innych grup,
-- [ ] Przyjmując, że grupy funduszy zostają wyświetlone w tabeli, oraz fundusz został otwarty, wybór powinien pozostać po wybraniu innego taba,
-- [ ] Przyjmując, że wybrane filtry nie pozwalają na wyświetlenie żadnego funduszu inwestycyjnego, tabela powinna wyświetlić komunikat o braku funduszy spełniających dane kryteria.
+- [X] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, użyty powinien zostać komponent tabów, wyświetlający tabele z funduszami w każdym z nich,
+- [X] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, fundusze inwestycyjne pogrupowane zostają w zbiory o unikalnej nazwie zmapowanej do `FundName`,
+- [X] Przyjmując, że użytkownik załadował aplikację, oraz że surowe dane zostały załadowane z zewnętrznego API, oraz że fundusze inwestycyjne pogrupowane, grupy zostają wyświetlone w tabeli 
+- [X] Przyjmując, że grupy funduszy zostają wyświetlone w tabeli, naciśnięcie na grupę powoduje wyświetlenie wszystkich funduszy przylegających do danej grupy, jednocześnie, otwarcie grupy nie powoduje automatycznego zamknięcia innych grup,
+- [X] Przyjmując, że grupy funduszy zostają wyświetlone w tabeli, oraz fundusz został otwarty, wybór powinien pozostać po wybraniu innego taba,
+- [X] Przyjmując, że wybrane filtry nie pozwalają na wyświetlenie żadnego funduszu inwestycyjnego, tabela powinna wyświetlić komunikat o braku funduszy spełniających dane kryteria.
 
 **Wyjątki**
-- [ ] Przyjmując, że komunikacja z API nie jest możliwa, aplikacja powinna wyświetlić błąd na masce przysłaniająca interfejs w 90%,
-- [ ] Przyjmując, że dane zwrócone w API są niekompletne, oraz którekolwiek z rekordów nie zawierają pól `FundName` lub `Name`, całe elementy kolekcji powinny zostać odfiltrowane,
-- [ ] Przyjmując, że dane zwrócone w API są niekompletne aplikacja powinna działać nieprzerwanie,
-- [ ] Przyjmując, że dane liczbowe zwrócone przez API są niekompletne, aplikacja powinna wyświetlać symbol `-` w miejscach brakującej wartości
+- [X] Przyjmując, że komunikacja z API nie jest możliwa, aplikacja powinna wyświetlić błąd na masce przysłaniająca interfejs w 90%,
+- [X] Przyjmując, że dane zwrócone w API są niekompletne, oraz którekolwiek z rekordów nie zawierają pól `FundName` lub `Name`, całe elementy kolekcji powinny zostać odfiltrowane,
+- [X] Przyjmując, że dane zwrócone w API są niekompletne aplikacja powinna działać nieprzerwanie,
+- [X] Przyjmując, że dane liczbowe zwrócone przez API są niekompletne, aplikacja powinna wyświetlać symbol `-` w miejscach brakującej wartości
 
 ### Repozytorium
 

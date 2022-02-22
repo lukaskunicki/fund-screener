@@ -1,9 +1,8 @@
 import React from "react";
 import FullWidthBackground from "../../../assets/global-styles/FullWidthBackground";
 import Logo from "../../../assets/icons/Logo.svg";
-import Row from "../../../assets/global-styles/Row";
-import Container from "../../../assets/global-styles/Container";
 import { BannerWrapper, StyledHeading, StyledParagraph } from "./StyledBanner";
+import { Container, Row } from "../../../assets/global-styles/Grid";
 
 const Banner = () => {
   return (

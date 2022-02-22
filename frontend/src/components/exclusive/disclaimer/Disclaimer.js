@@ -1,11 +1,10 @@
 import React from "react";
-import Container from "../../../assets/global-styles/Container";
-import Row from "../../../assets/global-styles/Row";
+import { Container, Row } from "../../../assets/global-styles/Grid";
 import { StyledDisclaimer } from "./StyledDisclaimer";
 
 const Disclaimer = () => {
   return (
-    <Container noSpacing>
+    <Container spacing="0">
       <Row>
         <StyledDisclaimer>
           <p>

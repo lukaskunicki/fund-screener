@@ -1,10 +1,10 @@
 import { useState, useCallback } from "react";
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
 
 const useSearch = (initialText, searchStateHandler) => {
   const [searchValue, setSearchValue] = useState(initialText);
 
-  const debounceHandler = useCallback(debounce(searchStateHandler, 500), []);
+  const debounceHandler = useCallback(debounce(searchStateHandler, 250), []);
 
   const changeHandler = (e) => {
     const { value } = e.target;

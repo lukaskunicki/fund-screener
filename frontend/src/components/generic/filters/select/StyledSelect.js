@@ -30,6 +30,7 @@ const StyledSelect = styled.select`
     line-height: 19px;
     color: #9c9c9c;
     border-radius: 8px;
+    cursor: pointer;
     background: url('${SelectArrow}') no-repeat 94%;
     appearance: none;
     @media (max-width: 590px) {

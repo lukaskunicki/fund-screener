@@ -2,13 +2,14 @@ import React from "react";
 import useFundsScreenerContext from "../../../hooks/useFundsScreenerContext";
 import Select from "../../generic/filters/select/Select";
 import Search from "../../generic/filters/search/Search";
-import Container from "../../../assets/global-styles/Container";
-import Row from "../../../assets/global-styles/Row";
+
 import {
   StyledClearFiltersButton,
   StyledClearFiltersButtonWrapper,
+  StyledFiltersBackground,
 } from "./StyledFundsFilters";
 import { initialFilterValue } from "../../../config/filters/filterKeys";
+import { Container, Row } from "../../../assets/global-styles/Grid";
 
 const FundsFilters = () => {
   const [state, filterFunds, searchFunds, clearFilters] =
@@ -18,34 +19,36 @@ const FundsFilters = () => {
   );
 
   return (
-    <Container>
-      <Row>
-        <Search
-          name={"search"}
-          placeholder="Start typing to search..."
-          searchHandler={searchFunds}
-        />
-        {state.filtersData.map((filter) => (
-          <Select
-            key={filter.key}
-            value={state.appliedFilters[filter.key]}
-            label={filter.key}
-            name={filter.key}
-            options={filter.data}
-            changeHandler={filterFunds}
+    <StyledFiltersBackground>
+      <Container>
+        <Row>
+          <Search
+            name={"search"}
+            placeholder="Start typing to search..."
+            searchHandler={searchFunds}
           />
-        ))}
-      </Row>
-      <Row>
-        {!!filtersActive && (
-          <StyledClearFiltersButtonWrapper>
-            <StyledClearFiltersButton tabindex="0" onClick={clearFilters}>
-              clear all filters
-            </StyledClearFiltersButton>
-          </StyledClearFiltersButtonWrapper>
-        )}
-      </Row>
-    </Container>
+          {state.filtersData.map((filter) => (
+            <Select
+              key={filter.key}
+              value={state.appliedFilters[filter.key]}
+              label={filter.key}
+              name={filter.key}
+              options={filter.data}
+              changeHandler={filterFunds}
+            />
+          ))}
+        </Row>
+        <Row>
+          {!!filtersActive && (
+            <StyledClearFiltersButtonWrapper>
+              <StyledClearFiltersButton tabindex="0" onClick={clearFilters}>
+                clear all filters
+              </StyledClearFiltersButton>
+            </StyledClearFiltersButtonWrapper>
+          )}
+        </Row>
+      </Container>
+    </StyledFiltersBackground>
   );
 };
 

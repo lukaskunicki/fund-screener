@@ -3,8 +3,7 @@ import Tab from "../../generic/tabs/Tab";
 import useFundsScreenerContext from "../../../hooks/useFundsScreenerContext";
 import Table from "../../generic/table/Table";
 import fundsTableConfig from "../../../config/table/fundsTableConfig";
-import Container from "../../../assets/global-styles/Container";
-import Row from "../../../assets/global-styles/Row";
+import { Container, Row } from "../../../assets/global-styles/Grid";
 
 const FundsTabs = () => {
   const tabsData = Object.keys(fundsTableConfig);
@@ -27,7 +26,7 @@ const FundsTabs = () => {
         <Table
           tableRows={state.filteredFundsData}
           columnsConfig={fundsTableConfig[selectedTab]}
-          alternativeMessage="No funds were fund in the app"
+          alternativeMessage="No funds were found in the app"
         />
       </Row>
     </Container>

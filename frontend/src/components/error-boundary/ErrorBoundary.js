@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import ErrorMessage from "../../assets/global-styles/Errors";
 
 class ErrorBoundary extends Component {
   state = {
@@ -23,13 +24,25 @@ class ErrorBoundary extends Component {
   render() {
     const { hasError, errorInfo } = this.state;
     if (hasError) {
-      return <p>An error occured</p>;
+      return (
+        <>
+          <ErrorMessage>
+            Sorry, an error occured - please try again later
+          </ErrorMessage>
+          {this.isDevInstance ? (
+            <div>
+              <p>Error details:</p>
+              <code>{errorInfo && errorInfo.componentStack.toString()}</code>
+            </div>
+          ) : null}
+        </>
+      );
     }
     return this.props.children;
   }
 }
 
-export { ErrorBoundary };
+export default ErrorBoundary;
 ErrorBoundary.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };

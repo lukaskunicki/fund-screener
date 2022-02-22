@@ -1,5 +1,5 @@
 import { useReducer, useCallback, useEffect } from "react";
-import { fundsScreenerReducer } from "../reducers/fundsScreenerReducer";
+import fundsScreenerReducer from "../reducers/fundsScreenerReducer";
 import fetchFundsData from "../utils/async/fetchFundsData";
 import {
   filterKeys,
@@ -17,7 +17,10 @@ const initialState = {
   filtersData: [],
   appliedFilters: getInitialFilterValue(),
   searchState: "",
-  isLoading: true,
+  requestStatus: {
+    isLoading: true,
+    isError: false,
+  },
 };
 
 const useFundsScreener = () => {
@@ -25,7 +28,13 @@ const useFundsScreener = () => {
 
   const initializeFundsData = useCallback(async () => {
     const apiResponse = await fetchFundsData();
-    const groupedFunds = groupBy(apiResponse, "fundName");
+    if (!apiResponse) {
+      return dispatch({ type: fundsScreenerReducerActions.SET_ERROR });
+    }
+    const filteredResponse = apiResponse.filter(
+      (fund) => fund.fundName?.length && fund.name?.length
+    );
+    const groupedFunds = groupBy(filteredResponse, "fundName");
     const organisedFunds = objectToKeyValuePairs(groupedFunds);
     const filterUniqueValues = getUniquePairValues(apiResponse, filterKeys);
 

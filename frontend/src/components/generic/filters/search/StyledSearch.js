@@ -20,6 +20,7 @@ const StyledSearch = styled.input`
   line-height: 19px;
   color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
+  background: inherit;
   @media (max-width: 590px) {
     width: 100%;
   }
