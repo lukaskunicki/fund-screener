@@ -10,6 +10,7 @@ import groupBy from "../utils/universal/groupBy";
 import objectToKeyValuePairs from "../utils/universal/objectToKeyValuePairs";
 import getUniquePairValues from "../utils/universal/getUniquePairValues";
 import fundsFilteringHelper from "../utils/filtering/fundsFilteringHelper";
+import sortFundsByName from "../utils/universal/sortFundsByName";
 
 const initialState = {
   initialFundsData: [],
@@ -35,7 +36,7 @@ const useFundsScreener = () => {
       (fund) => fund.fundName?.length && fund.name?.length
     );
     const groupedFunds = groupBy(filteredResponse, "fundName");
-    const organisedFunds = objectToKeyValuePairs(groupedFunds);
+    const organisedFunds = sortFundsByName(objectToKeyValuePairs(groupedFunds));
     const filterUniqueValues = getUniquePairValues(apiResponse, filterKeys);
 
     dispatch({
@@ -50,7 +51,7 @@ const useFundsScreener = () => {
   const filterFunds = useCallback(
     (key, value) => {
       const { initialFundsData, appliedFilters, searchState } = state;
-      const newFiltersState = { ...appliedFilters };
+      let newFiltersState = { ...appliedFilters };
       newFiltersState[key] = value;
       const filtersResult = fundsFilteringHelper(initialFundsData, [
         newFiltersState,
