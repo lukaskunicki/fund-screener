@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import SelectArrow from "../../../../assets/icons/SelectArrow.svg";
+import ProjectTheme from "../../../../assets/global-styles/ProjectTheme";
 
 const StyledSelectWrapper = styled.div`
-  font-family: Libre Franklin;
-  color: #9c9c9c;
+  font-family: ${ProjectTheme.fonts.primary};
+  color: ${ProjectTheme.colors.darkGrey};
   max-width: 255px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${ProjectTheme.breakPoints.lg}) {
     padding: 10px 5px;
   }
-  @media (max-width: 590px) {
+  @media (max-width: ${ProjectTheme.breakPoints.sm}) {
     max-width: 100%;
     width: 100%;
   }
@@ -28,12 +29,12 @@ const StyledSelect = styled.select`
     min-width: 255px;
     font-size: 16px;
     line-height: 19px;
-    color: #9c9c9c;
+    color: ${ProjectTheme.colors.darkGrey};
     border-radius: 8px;
     cursor: pointer;
     background: url('${SelectArrow}') no-repeat 94%;
     appearance: none;
-    @media (max-width: 590px) {
+    @media (max-width: ${ProjectTheme.breakPoints.sm}) {
       width: 100%;
     }
   }

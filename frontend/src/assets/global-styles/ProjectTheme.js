@@ -6,7 +6,7 @@ const ProjectTheme = {
   },
   fonts: {
     primary: "'Libre Franklin', sans-serif",
-    secondary: "Heebo', sans-serif",
+    secondary: "'Heebo', sans-serif",
     tertiary: "'Roboto', sans-serif",
   },
   colors: {

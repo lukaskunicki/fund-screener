@@ -1,25 +1,24 @@
 import styled, { css } from "styled-components";
+import ProjectTheme from "../../../assets/global-styles/ProjectTheme";
 
 const StyledTab = styled.button`
-  font-family: Libre Franklin;
-  font-style: normal;
-  font-weight: 500;
+  font-family: ${ProjectTheme.fonts.primary};
   font-size: 20px;
   padding: 10px 30px;
   text-align: center;
   color: #2c4959;
   text-transform: uppercase;
-  background: #ffffff;
+  background: ${ProjectTheme.colors.white};
   border: none;
   cursor: pointer;
   ${(props) =>
     !!props.active &&
     css`
       font-weight: 600;
-      border-bottom: 3px solid #fab083;
+      border-bottom: 3px solid ${ProjectTheme.colors.orange};
       color: #222222;
     `};
-  @media (max-width: 768px) {
+  @media (max-width: ${ProjectTheme.breakPoints.md}) {
     width: 100%;
   }
 `;

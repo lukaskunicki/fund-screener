@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ProjectTheme from "../../../assets/global-styles/ProjectTheme";
 
 const TableWrapper = styled.div`
   overflow-x: auto;
@@ -10,12 +11,12 @@ const StyledTable = styled.table`
   border-collapse: collapse;
 `;
 const StyledTableHeader = styled.thead`
-  background: #fafafa;
+  background: ${ProjectTheme.colors.greyBackground};
 `;
 const StyledTableHeaderRow = styled.tr`
-  border-bottom: 2px solid #e8e8e8;
+  border-bottom: 2px solid ${ProjectTheme.colors.grey};
   & > th {
-    font-family: Heebo;
+    font-family: ${ProjectTheme.fonts.secondary};
     font-size: 14px;
     padding: 30px 0;
     
