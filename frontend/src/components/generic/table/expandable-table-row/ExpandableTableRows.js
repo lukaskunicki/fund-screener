@@ -7,19 +7,20 @@ import {
 const ExpandableTableRows = ({ rowKey, subRows, columnsConfig }) => {
   const [rowExpanded, setRowExpanded] = useState(false);
   if (!subRows?.length) return null;
+
   return (
     <tbody>
       <StyledTableExpandableRow expanded={rowExpanded}>
-        <td colSpan={columnsConfig.length}>
+        <td colSpan="100%">
           <button onClick={() => setRowExpanded(!rowExpanded)}>{rowKey}</button>
         </td>
       </StyledTableExpandableRow>
       {!!rowExpanded &&
-        subRows.map((subRow, index) => {
+        subRows.map((subRow) => {
           return (
-            <StyledTableExpandableSubRow key={index}>
-              {columnsConfig.map((col, index) => (
-                <td tabIndex={0} key={index}>
+            <StyledTableExpandableSubRow key={subRow.isin}>
+              {columnsConfig.map((col) => (
+                <td tabIndex={0} key={col.label}>
                   {col.get(subRow)}
                 </td>
               ))}

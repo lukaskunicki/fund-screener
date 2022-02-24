@@ -4,7 +4,13 @@ import StyledTab from "./StyledTab";
 
 const Tab = ({ title, isActive, clickHandler }) => {
   return (
-    <StyledTab active={isActive} onClick={() => clickHandler(title)}>
+    <StyledTab
+      role="tab"
+      aria-selected={!!isActive}
+      active={!!isActive}
+      aria-controls={`${title}-tab`}
+      onClick={() => clickHandler(title)}
+    >
       {title}
     </StyledTab>
   );

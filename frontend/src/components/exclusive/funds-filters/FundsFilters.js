@@ -2,14 +2,13 @@ import React from "react";
 import useFundsScreenerContext from "../../../hooks/useFundsScreenerContext";
 import Select from "../../generic/filters/select/Select";
 import Search from "../../generic/filters/search/Search";
-
+import { initialFilterValue } from "../../../config/filters/filterKeys";
+import { Container, Row } from "../../../assets/global-styles/Grid";
 import {
   StyledClearFiltersButton,
   StyledClearFiltersButtonWrapper,
   StyledFiltersBackground,
 } from "./StyledFundsFilters";
-import { initialFilterValue } from "../../../config/filters/filterKeys";
-import { Container, Row } from "../../../assets/global-styles/Grid";
 
 const FundsFilters = () => {
   const [state, filterFunds, searchFunds, clearFilters] =

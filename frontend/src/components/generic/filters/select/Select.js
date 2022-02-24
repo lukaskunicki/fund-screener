@@ -5,15 +5,15 @@ import { StyledSelect, StyledSelectWrapper } from "./StyledSelect";
 const Select = ({ label, name, value, options, changeHandler }) => {
   return (
     <StyledSelectWrapper>
-      <label>{label}</label>
+      <label htmlFor={name}>{label}</label>
       <StyledSelect
         name={name}
         onChange={(e) => changeHandler(name, e.target.value)}
         value={value}
+        id={name}
       >
-        {/* TODO: use uuid here */}
-        {options.map((option, key) => (
-          <option key={key} value={option}>
+        {options.map((option) => (
+          <option key={option} value={option}>
             {option}
           </option>
         ))}

@@ -11,7 +11,7 @@ const FundsTabs = () => {
   const [state] = useFundsScreenerContext();
 
   return (
-    <Container>
+    <Container role="tablist" aria-label="Fund Tabs">
       <Row block>
         {tabsData.map((tab) => (
           <Tab
@@ -22,7 +22,7 @@ const FundsTabs = () => {
           />
         ))}
       </Row>
-      <Row>
+      <Row role="tabpanel" aria-labelledby={selectedTab}>
         <Table
           tableRows={state.filteredFundsData}
           columnsConfig={fundsTableConfig[selectedTab]}

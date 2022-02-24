@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ProjectTheme from "../../../../assets/global-styles/ProjectTheme";
+
 const SearchWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -13,12 +14,13 @@ const SearchWrapper = styled.div`
     width: 100%;
   }
 `;
+
 const StyledSearch = styled.input`
   font-family: ${ProjectTheme.fonts.primary};
   padding: 18.5px 42px 18.5px 14px;
   font-size: 16px;
   line-height: 19px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #00000099;
   border-radius: 8px;
   background: inherit;
   border: 1px solid ${ProjectTheme.colors.transparentGrey};

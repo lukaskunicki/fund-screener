@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ErrorMessage from "../../assets/global-styles/Errors";
+import { Container } from "../../assets/global-styles/Grid";
 
 class ErrorBoundary extends Component {
   state = {
@@ -25,7 +26,7 @@ class ErrorBoundary extends Component {
     const { hasError, errorInfo } = this.state;
     if (hasError) {
       return (
-        <>
+        <Container>
           <ErrorMessage>
             Sorry, an error occured - please try again later
           </ErrorMessage>
@@ -35,7 +36,7 @@ class ErrorBoundary extends Component {
               <code>{errorInfo && errorInfo.componentStack.toString()}</code>
             </div>
           ) : null}
-        </>
+        </Container>
       );
     }
     return this.props.children;
