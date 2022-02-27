@@ -58,3 +58,22 @@ Repozytorium zadania zawiera 3 zasoby:
 - Katalog `frontend/`, jako przestrzeń do stworzenia aplikacji frontendowej,
 - Katalog `backend/`, który zawiera serwer lokalny bazujący na rozwiązaniu express.js i który to wystawia lokalne API do użycia w ramach aplikacji frontendowej. Dokumentacja API dostępna jest także w tym katalogu,
 - oraz plik `README.md`.
+
+### Uruchomienie aplikacji frontendowej
+- Przechodzimy do katalogu frontend i wykonujemy polecenie `yarn install`
+- Zaleca się wykonanie polecenia `export PORT=5000` gdzie `5000` oznacza numer portu dla aplikacji frontendowej (nie będziemy wówczas mieli konfliktu pomiędzy aplikacją backendową i frontendową)
+- Uruchamiamy aplikację poleceniem `yarn start`
+
+### Obsługa aplikacji frontendowej
+1. Aplikacja opiera się na stałych konfiguracyjnych, zdefiniowanych w katalogu `frontend/config/`
+
+- `api/` - zawiera konfigurację adresów API, w tym API backendowego
+- `filters/` - zawiera konfigurację kluczy, które mają stanowić filtry w naszej aplikacji, oraz stan defaultowy
+- `reducers/` - zawiera konfigurację akcji dla dispatch'a w hooku `useFundsScreener.js`
+- `table/` - pozwala na zdefiniowanie tabów wyświetlanych w aplikacji, nazw kolumn w poszczególnych tabelach, a także metod pozwalających na wyłuskanie określonej wartości z obiektu funda (metoda `get`)
+
+3. Stan globalny dostępny jest z contextu, za pośrednictwem hooka `useFundsScreenerContext`
+4. Komponenty podzielono na reużywalne (generic), oraz te które wykorzystują dane z kontekstu (exclusive)
+5. Całość aplikacji opleciona jest error boundary
+6. Do stylowania aplikacji wykorzystano bilbliotekę `styled-components`, zdefiniowano style globalne `assets/global-styles`, jak i indywidualne dla komponentów
+7. Wszelkie pure functions wydzielono do katalogu `utils`

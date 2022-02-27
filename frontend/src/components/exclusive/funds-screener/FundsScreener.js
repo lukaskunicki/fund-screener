@@ -1,10 +1,10 @@
 import React from "react";
-import FundsFilters from "./funds-filters/FundsFilters";
-import FundsTabs from "./funds-tabs/FundsTabs";
-import LoadingMask from "../../assets/global-styles/LoadingMask";
-import Loader from "../../assets/icons/Loader.svg";
-import ErrorMessage from "../../assets/global-styles/Errors";
-import useFundsScreenerContext from "../../hooks/useFundsScreenerContext";
+import FundsFilters from "../funds-filters/FundsFilters";
+import FundsTabs from "../funds-tabs/FundsTabs";
+import LoadingMask from "../../../assets/global-styles/LoadingMask";
+import Loader from "../../../assets/icons/Loader.svg";
+import ErrorMessage from "../../../assets/global-styles/Errors";
+import useFundsScreenerContext from "../../../hooks/useFundsScreenerContext";
 
 const FundsScreener = () => {
   const [state] = useFundsScreenerContext();
