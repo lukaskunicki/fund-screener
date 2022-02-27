@@ -59,6 +59,7 @@ Repozytorium zadania zawiera 3 zasoby:
 - Katalog `backend/`, który zawiera serwer lokalny bazujący na rozwiązaniu express.js i który to wystawia lokalne API do użycia w ramach aplikacji frontendowej. Dokumentacja API dostępna jest także w tym katalogu,
 - oraz plik `README.md`.
 
+---
 ### Uruchomienie aplikacji frontendowej
 - Przechodzimy do katalogu frontend i wykonujemy polecenie `yarn install`
 - Zaleca się wykonanie polecenia `export PORT=5000` gdzie `5000` oznacza numer portu dla aplikacji frontendowej (nie będziemy wówczas mieli konfliktu pomiędzy aplikacją backendową i frontendową)
